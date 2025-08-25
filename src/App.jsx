@@ -17,6 +17,7 @@ import ContactPage from '@/pages/ContactPage';
 import BookingPage from '@/pages/BookingPage';
 import QuotePage from '@/pages/QuotePage';
 import ScrollToTop from '@/components/ScrollToTop';
+import PaymentPortal404 from '@/components/PaymentPortal404';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/book-consultation" element={<BookingPage />} />
             <Route path="/request-quote" element={<QuotePage />} />
+            <Route path="/payment-portal" element={<PaymentPortal404 />} />
           </Routes>
         </main>
         <Footer />

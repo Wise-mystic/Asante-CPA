@@ -4,13 +4,6 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 
 const Footer = () => {
-  const handlePaymentPortal = () => {
-    toast({
-      title: "🚧 Payment portal coming soon!",
-      description: "This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-    });
-  };
-
   const firmAddress = "9 Sparrow way, Tottenham, ON, LOG1W0";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(firmAddress)}`;
   const whatsappUrl = "https://wa.me/16476280976";
@@ -51,12 +44,12 @@ const Footer = () => {
               <Link to="/contact" className="block text-gray-300 hover:text-primary-green transition-colors">
                 Contact
               </Link>
-              <button 
-                onClick={handlePaymentPortal}
-                className="block text-gray-300 hover:text-primary-green transition-colors text-left"
+              <Link 
+                to="/payment-portal" 
+                className="block text-gray-300 hover:text-primary-green transition-colors"
               >
                 Payment Portal
-              </button>
+              </Link>
             </div>
           </div>
 

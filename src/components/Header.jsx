@@ -133,7 +133,7 @@ const Header = () => {
                 <Link to="/about" onClick={closeMenus} className="mobile-nav-link">About</Link>
                 
                 <div>
-                  <button onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)} className="w-full flex justify-between items-center mobile-nav-link">
+                  <button onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)} className="w-full flex justify-between items-center text-left mobile-nav-link">
                     <span>Services</span>
                     {isMobileServicesOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
                   </button>

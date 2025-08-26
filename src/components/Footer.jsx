@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Facebook, Linkedin, Instagram, Twitter, X } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
+import FooterLogoImage from '@/assets/images/Mr. Ben Asante Logo .jpg';
+import RemoveBackgroundLogoImage from '@/assets/images/Mr._Ben_Asante_Logo_-removebg-preview.png';
 
 const Footer = () => {
   const firmAddress = "9 Sparrow way, Tottenham, ON, LOG1W0";
@@ -9,23 +11,62 @@ const Footer = () => {
   const whatsappUrl = "https://wa.me/16476280976";
   const emailAddress = "info@asantecpa.ca";
 
+  // Social media links - replace these with actual URLs
+  const socialLinks = {
+    facebook: "https://www.facebook.com/AsanteCPA",
+    linkedin: "https://www.linkedin.com/company/asante-cpa",
+    instagram: "https://www.instagram.com/asantecpa",
+    X: "https://x.com/asantecpa"
+  };
+
+  // Social media icon component with hover animations
+  const SocialIcon = ({ Icon, href }) => (
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="group relative inline-block"
+    >
+      <div className="absolute inset-0 bg-primary-green opacity-0 group-hover:opacity-60 rounded-full transition-opacity duration-300 transform scale-0 group-hover:scale-110"></div>
+      <Icon className="h-7 w-8 text-gray-300 group-hover:text-primary-green transition-colors duration-300 relative z-10" />
+    </a>
+  );
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="flex items-center space-x-3 mb-4">
-              <img src="https://horizons-cdn.hostinger.com/d150909e-27a8-47a7-86f9-36f1af064fd9/befce0fd5b0c2c4bdce41c16d2d27550.jpg" alt="Asante CPA Professional Corporation Logo" className="h-12" />
-               <span className="font-bold text-xl text-white">Asante CPA</span>
+            <Link to="/" className="flex-shrink-0 flex items-center space-x-3">
+              <img 
+                src={RemoveBackgroundLogoImage} 
+                alt="Asante CPA Professional Corporation Logo" 
+                className="h-24 w-auto object-contain" 
+                onError={(e) => {
+                  console.error('Footer logo failed to load, using fallback');
+                  e.target.src = RemoveBackgroundLogoImage;
+                }}
+              />
+              {/* Social Media Links */}
+              <div className="flex space-x-4">
+                <SocialIcon Icon={Facebook} href={socialLinks.facebook} />
+                <SocialIcon Icon={Linkedin} href={socialLinks.linkedin} />
+                <SocialIcon Icon={Instagram} href={socialLinks.instagram} />
+                <SocialIcon Icon={X} href={socialLinks.X} />
+              </div>
             </Link>
-            <p className="text-gray-300 mb-4 max-w-md">
-              Trusted accounting and advisory services for businesses and individuals. 
-              CPA-certified with 10+ years of experience providing personalized financial solutions.
-            </p>
-            <div className="flex items-center space-x-4 text-sm text-gray-400">
-              <span>CPA Ontario Licensed</span>
-              <span>•</span>
-              <span>Professional Corporation</span>
+            <div className="mt-4">
+              <p className="text-gray-300 mb-4 max-w-md leading-relaxed">
+                Trusted accounting and advisory services for businesses and individuals. 
+                CPA-certified with 10+ years of experience providing personalized financial solutions.
+              </p>
+              <div className="flex items-center space-x-4 text-sm text-gray-400 mb-4">
+                <span className="drop-shadow-sm">CPA Ontario Licensed</span>
+                <span>•</span>
+                <span className="drop-shadow-sm">Professional Corporation</span>
+              </div>
+              
+              
             </div>
           </div>
 

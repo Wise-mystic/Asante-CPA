@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LogoImage from '@/assets/images/Mr._Ben_Asante_Logo_-removebg-preview.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,8 +51,11 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex-shrink-0 flex items-center space-x-3">
-             <img src="https://horizons-cdn.hostinger.com/d150909e-27a8-47a7-86f9-36f1af064fd9/befce0fd5b0c2c4bdce41c16d2d27550.jpg" alt="Asante CPA Professional Corporation Logo" className="h-16" />
-             <span className="font-bold text-xl text-gray-800 hidden sm:inline">Asante CPA</span>
+             <img 
+               src={LogoImage} 
+               alt="Asante CPA Professional Corporation Logo" 
+               className="h-20 w-auto object-contain" 
+             />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

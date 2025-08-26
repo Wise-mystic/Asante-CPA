@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Award, Users, Shield, TrendingUp, CheckCircle, Target } from 'lucide-react';
+import AboutPageImage from '@/assets/images/image.png';
 
 const AboutPage = () => {
   const values = [
@@ -81,9 +82,9 @@ const AboutPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <img  
-                className="rounded-2xl shadow-2xl w-full h-96 object-cover"
-                alt="Professional headshot of CPA in modern office setting"
-               src="https://images.unsplash.com/photo-1659128103024-e73f383e18f2" />
+                className="rounded-2xl shadow-2xl w-full h-100 object-cover"
+                alt="Professional headshot of Mr. Ben Asante"
+               src={AboutPageImage}/>
             </motion.div>
           </div>
         </div>

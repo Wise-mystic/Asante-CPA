@@ -54,7 +54,7 @@ const Header = () => {
              <img 
                src={LogoImage} 
                alt="Asante CPA Professional Corporation Logo" 
-               className="h-20 w-auto object-contain" 
+               className="h-32 w-auto object-contain" 
              />
           </Link>
 

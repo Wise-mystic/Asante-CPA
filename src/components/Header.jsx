@@ -51,11 +51,11 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex-shrink-0 flex items-center space-x-3">
-             <img 
-               src={LogoImage} 
-               alt="Asante CPA Professional Corporation Logo" 
-               className="h-32 w-auto object-contain" 
-             />
+            <img
+              src={LogoImage}
+              alt="Asante CPA Professional Corporation Logo"
+              className="h-32 w-auto object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -65,7 +65,7 @@ const Header = () => {
             <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'text-primary-green' : 'text-gray-700'}`}>
               About
             </Link>
-            
+
             <div className="relative" onMouseEnter={() => setIsDesktopServicesOpen(true)} onMouseLeave={() => setIsDesktopServicesOpen(false)}>
               <Link to="/services" className={`nav-link flex items-center ${location.pathname.includes('/services') ? 'text-primary-green' : 'text-gray-700'}`}>
                 Services <ChevronDown className="ml-1 h-4 w-4" />
@@ -135,11 +135,11 @@ const Header = () => {
               <div className="flex flex-col space-y-2 px-4">
                 <Link to="/" onClick={closeMenus} className="mobile-nav-link">Home</Link>
                 <Link to="/about" onClick={closeMenus} className="mobile-nav-link">About</Link>
-                
+
                 <div>
                   <button onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)} className="w-full flex justify-between items-center text-left mobile-nav-link">
                     <span>Services</span>
-                    {isMobileServicesOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                    {isMobileServicesOpen ? <ChevronUp className="h-5 w-5 inline-block ml-2" /> : <ChevronDown className="h-5 w-5 inline-block ml-2" />}
                   </button>
                   <AnimatePresence>
                     {isMobileServicesOpen && (
@@ -166,7 +166,7 @@ const Header = () => {
 
                 <Link to="/resources" onClick={closeMenus} className="mobile-nav-link">Resources</Link>
                 <Link to="/contact" onClick={closeMenus} className="mobile-nav-link">Contact</Link>
-                
+
                 <div className="pt-4">
                   <Link to="/book-consultation">
                     <Button onClick={closeMenus} className="cta-button text-white px-6 py-2 rounded-lg font-medium w-full">

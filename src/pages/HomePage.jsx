@@ -75,9 +75,9 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>Trusted Accounting & Advisory Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Professional CPA services for businesses and individuals in Tottenham. Tax preparation, bookkeeping, payroll, and business advisory services. CPA Ontario licensed with 10+ years experience." />
-        <meta property="og:title" content="Trusted Accounting & Advisory Services | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="Professional CPA services for businesses and individuals in Tottenham. Tax preparation, bookkeeping, payroll, and business advisory services." />
+        <meta name="description" content="Professional CPA services for businesses, individuals, and not-for-profits across Toronto and the Greater Toronto Area. Comprehensive accounting solutions including tax preparation, bookkeeping, corporate accounting, CFO advisory, and church/not-for-profit reporting." />
+        <meta property="og:title" content="Asante CPA Professional Corporation - Toronto & GTA Accounting Services" />
+        <meta property="og:description" content="Professional CPA services for businesses, individuals, and not-for-profits across Toronto and the Greater Toronto Area. Comprehensive accounting solutions including tax preparation, bookkeeping, corporate accounting, CFO advisory, and church/not-for-profit reporting." />
       </Helmet>
 
       {/* Hero Section */}
@@ -90,12 +90,12 @@ const HomePage = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Trusted Accounting & 
-                <span className="text-primary-green"> Advisory Services</span>
+                Professional CPA Services for 
+                <span className="text-primary-green"> Toronto & GTA</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Professional CPA services for businesses and individuals. 
-                Personalized service with professional expertise you can trust.
+                At Asante CPA Professional Corporation, we provide professional CPA services for businesses, individuals, and not-for-profits across Toronto and the Greater Toronto Area.
+                From bookkeeping and tax preparation to corporate accounting, CFO advisory, and church/not-for-profit reporting, we deliver personalized solutions backed by expertise you can trust.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">

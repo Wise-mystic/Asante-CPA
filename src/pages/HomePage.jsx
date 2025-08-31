@@ -14,6 +14,8 @@ import {
   Star
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import CPALogo from '@/assets/images/CPA-Ontario-1.png';
+import BWConsultingProfile from '@/assets/images/bw_consulting_profile_2.png';
 
 const HomePage = () => {
   const services = [
@@ -44,8 +46,8 @@ const HomePage = () => {
   ];
 
   const trustSignals = [
-    { icon: Shield, text: 'CPA Ontario Licensed' },
-    { icon: Award, text: '10+ Years Experience' },
+    { icon: CPALogo, text: 'CPA Ontario Licensed' },
+    { icon: Award, text: '20+ Years Experience' },
     { icon: Users, text: '500+ Satisfied Clients' },
     { icon: CheckCircle, text: 'Professional Corporation' }
   ];
@@ -74,10 +76,10 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>Trusted Accounting & Advisory Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Professional CPA services for businesses, individuals, and not-for-profits across Toronto and the Greater Toronto Area. Comprehensive accounting solutions including tax preparation, bookkeeping, corporate accounting, CFO advisory, and church/not-for-profit reporting." />
-        <meta property="og:title" content="Asante CPA Professional Corporation - Toronto & GTA Accounting Services" />
-        <meta property="og:description" content="Professional CPA services for businesses, individuals, and not-for-profits across Toronto and the Greater Toronto Area. Comprehensive accounting solutions including tax preparation, bookkeeping, corporate accounting, CFO advisory, and church/not-for-profit reporting." />
+        <title>Trusted CPA Services — Remote or In-Person | Asante CPA</title>
+        <meta name="description" content="Comprehensive CPA services for businesses, individuals, and not-for-profits across Canada & the U.S. Bookkeeping, tax preparation, corporate accounting, CFO advisory—remote or in-person. CPA Ontario licensed with 20+ years experience." />
+        <meta property="og:title" content="Trusted CPA Services — Remote or In-Person | Asante CPA" />
+        <meta property="og:description" content="Comprehensive CPA services for businesses, individuals, and not-for-profits across Canada & the U.S. Bookkeeping, tax preparation, corporate accounting, CFO advisory—remote or in-person. CPA Ontario licensed with 20+ years experience." />
       </Helmet>
 
       {/* Hero Section */}
@@ -118,19 +120,42 @@ const HomePage = () => {
               </div>
 
               {/* Trust Signals */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {trustSignals.map((signal, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="trust-badge rounded-lg p-3 text-center"
+              <div className="flex items-center space-x-4 text-gray-700">
+                <div className="flex items-center space-x-3 bg-white rounded-lg px-4 py-2 shadow-sm">
+                  <img 
+                    src={CPALogo} 
+                    alt="CPA Ontario Licensed" 
+                    className="h-14 w-auto object-contain" 
+                  />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-bold text-gray-800">CPA Ontario</span>
+                    <span className="text-xs text-gray-600">Licensed</span>
+                  </div>
+                </div>
+                {/* <div className="flex items-center space-x-2">
+                  <Award className="h-5 w-5 text-primary-blue" />
+                  <span className="text-sm">20+ Years Experience</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Users className="h-5 w-5 text-primary-green" />
+                  <span className="text-sm">500+ Satisfied Clients</span>
+                </div> */}
+                <div className="flex items-center space-x-2">
+                  <div className="bg-primary-blue/10 rounded-full p-2 flex items-center justify-center">
+                    <CheckCircle className="h-5 w-5 text-primary-blue" />
+                  </div>
+                  <a 
+                    href="#testimonial" 
+                    className="group flex items-center space-x-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
                   >
-                    <signal.icon className="h-6 w-6 text-primary-blue mx-auto mb-2" />
-                    <p className="text-xs font-medium text-gray-700">{signal.text}</p>
-                  </motion.div>
-                ))}
+                    <span className="text-sm font-semibold text-primary-blue group-hover:text-primary-green transition-colors">
+                      See Client Testimonials
+                    </span>
+                    <ArrowRight 
+                      className="h-4 w-4 text-primary-blue group-hover:translate-x-1 group-hover:text-primary-green transform transition-all duration-300" 
+                    />
+                  </a>
+                </div>
               </div>
             </motion.div>
 
@@ -142,8 +167,8 @@ const HomePage = () => {
             >
               <img  
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
-                alt="Professional CPA office environment with modern workspace"
-               src="https://images.unsplash.com/photo-1570126618953-d437176e8c79" />
+                alt="Collaborative business consultation with smiling professionals"
+               src={BWConsultingProfile} />
               
               {/* Floating Stats Card */}
               <motion.div
@@ -158,7 +183,7 @@ const HomePage = () => {
                     <div className="text-sm text-gray-600">Happy Clients</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-primary-green">10+</div>
+                    <div className="text-2xl font-bold text-primary-green">20+</div>
                     <div className="text-sm text-gray-600">Years Experience</div>
                   </div>
                 </div>
@@ -257,7 +282,7 @@ const HomePage = () => {
                       CPA-Certified Expertise
                     </h3>
                     <p className="text-gray-600">
-                      Licensed CPA with 10+ years of experience and ongoing professional development.
+                      Licensed CPA with 20+ years of experience and ongoing professional development.
                     </p>
                   </div>
                 </div>
@@ -296,7 +321,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-white">
+      <section id="testimonial" className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -342,34 +367,37 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="gradient-bg section-padding">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="gradient-bg section-padding overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/80 to-primary-green/80 opacity-90"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Get Started?
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+              Take the First Step Towards Financial Success
             </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Schedule a consultation today and discover how we can help you achieve your financial goals.
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Whether you're a small business, individual, or non-profit, our personalized CPA services are designed to help you achieve your financial goals with confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/book-consultation">
                 <Button 
-                  className="bg-white text-primary-blue hover:bg-gray-100 px-8 py-3 text-lg font-medium"
+                  className="bg-white text-primary-blue hover:bg-gray-100 px-10 py-3 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
                 >
-                  Book Consultation
+                  Book a Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link to="/request-quote">
                 <Button 
                   variant="outline" 
-                  className="border-white text-white hover:bg-white/10 hover:border-white/80 px-8 py-3 text-lg font-medium"
+                  className="border-white text-white hover:bg-white/20 hover:border-white/80 px-10 py-3 text-lg font-semibold rounded-full transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
                 >
-                  Get a Quote
+                  Get a Free Quote
+                  <Shield className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

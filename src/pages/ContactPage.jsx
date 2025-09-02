@@ -152,7 +152,7 @@ const ContactPage = () => {
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">Why Choose Asante CPA?</h3>
                 <div className="space-y-4">
-                  {['CPA Ontario Licensed Professional', '10+ Years of Experience', 'Personalized Service Approach', 'Competitive & Transparent Pricing', 'Modern Technology & Tools', 'Confidential & Secure'].map((benefit, index) => (
+                  {['CPA Ontario Licensed Professional', '20+ Years of Experience', 'Personalized Service Approach', 'Competitive & Transparent Pricing', 'Modern Technology & Tools', 'Confidential & Secure'].map((benefit, index) => (
                     <div key={index} className="flex items-center space-x-3">
                       <CheckCircle className="h-5 w-5 text-primary-green flex-shrink-0" />
                       <span className="text-gray-700">{benefit}</span>

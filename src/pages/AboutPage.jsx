@@ -41,9 +41,9 @@ const AboutPage = () => {
     <>
       <Helmet>
         <title>About Us - Professional CPA Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Learn about Asante CPA Professional Corporation. CPA Ontario licensed with 10+ years experience providing personalized accounting and advisory services to businesses and individuals in Tottenham." />
+        <meta name="description" content="Learn about Asante CPA Professional Corporation. CPA Ontario licensed with 20+ years experience providing personalized accounting and advisory services to businesses and individuals in Tottenham." />
         <meta property="og:title" content="About Us - Professional CPA Services | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="CPA Ontario licensed with 10+ years experience providing personalized accounting and advisory services to businesses and individuals in Tottenham." />
+        <meta property="og:description" content="CPA Ontario licensed with 20+ years experience providing personalized accounting and advisory services to businesses and individuals in Tottenham." />
       </Helmet>
 
       {/* Hero Section */}
@@ -56,24 +56,22 @@ const AboutPage = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                About 
-                <span className="text-primary-green"> Asante CPA</span>
+                About <span className="text-primary-green">Asante CPA</span> Professional Corporation
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Professional Corporation dedicated to providing exceptional accounting 
-                and advisory services with a personal touch.
+              <p className="text-lg text-gray-700 mb-3 leading-relaxed">
+                Trusted CPA services — remote or in-person
               </p>
-              
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-blue mb-2">10+</div>
-                  <div className="text-gray-600">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-green mb-2">500+</div>
-                  <div className="text-gray-600">Satisfied Clients</div>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                We serve clients across Canada & the U.S. with bookkeeping, tax, financial reporting, and CFO advisory—delivered with clear guidance, responsive service, and dependable results.
+              </p>
+              {/* Centered Experience Card */}
+              <div className="flex justify-center">
+                <div className="glass-card rounded-xl p-6 shadow-xl text-center">
+                  <div className="text-3xl font-bold text-primary-green">20+</div>
+                  <div className="text-gray-700">Years Experience</div>
                 </div>
               </div>
+              
             </motion.div>
 
             <motion.div

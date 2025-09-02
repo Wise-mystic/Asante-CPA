@@ -14,7 +14,7 @@ import {
   Star
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import CPALogo from '@/assets/images/CPA-Ontario-1.png';
+import CPALogo from '@/assets/images/cpa-l-logo.png';
 import BWConsultingProfile from '@/assets/images/bw_consulting_profile_2.png';
 
 const HomePage = () => {
@@ -48,7 +48,7 @@ const HomePage = () => {
   const trustSignals = [
     { icon: CPALogo, text: 'CPA Ontario Licensed' },
     { icon: Award, text: '20+ Years Experience' },
-    { icon: Users, text: '500+ Satisfied Clients' },
+    { icon: Users, text: 'Trusted by Clients' },
     { icon: CheckCircle, text: 'Professional Corporation' }
   ];
 
@@ -92,12 +92,10 @@ const HomePage = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Professional CPA Services for 
-                <span className="text-primary-green"> Toronto & GTA</span>
+                Trusted <span className="text-primary-green">CPA</span> services — remote or in-person
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                At Asante CPA Professional Corporation, we provide professional CPA services for businesses, individuals, and not-for-profits across Toronto and the Greater Toronto Area.
-                From bookkeeping and tax preparation to corporate accounting, CFO advisory, and church/not-for-profit reporting, we deliver personalized solutions backed by expertise you can trust.
+                We serve clients across Canada & the U.S. with bookkeeping, tax, financial reporting, and CFO advisory—delivered with clear guidance, responsive service, and dependable results.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -125,7 +123,7 @@ const HomePage = () => {
                   <img 
                     src={CPALogo} 
                     alt="CPA Ontario Licensed" 
-                    className="h-14 w-auto object-contain" 
+                    className="h-16 w-auto object-contain" 
                   />
                   <div className="flex flex-col">
                     <span className="text-sm font-bold text-gray-800">CPA Ontario</span>
@@ -170,10 +168,6 @@ const HomePage = () => {
                 className="absolute -bottom-6 -left-6 glass-card rounded-xl p-6 shadow-xl"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary-blue">500+</div>
-                    <div className="text-sm text-gray-600">Happy Clients</div>
-                  </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-primary-green">20+</div>
                     <div className="text-sm text-gray-600">Years Experience</div>

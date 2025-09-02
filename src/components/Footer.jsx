@@ -58,7 +58,7 @@ const Footer = () => {
             <div className="mt-4">
               <p className="text-gray-300 mb-4 max-w-md leading-relaxed">
                 Trusted accounting and advisory services for businesses and individuals. 
-                CPA-certified with 10+ years of experience providing personalized financial solutions.
+                CPA-certified with 20+ years of experience providing personalized financial solutions.
               </p>
               <div className="flex items-center space-x-4 text-sm text-gray-400 mb-4">
                 <span className="drop-shadow-sm">CPA Ontario Licensed</span>

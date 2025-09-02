@@ -116,6 +116,41 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* What we do */}
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What we do
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Practical, end-to-end accounting support tailored to your needs
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {[
+              'Bookkeeping & monthly financial statements',
+              'Corporate & personal tax (planning, filing, CRA support)',
+              'CFO advisory, budgeting & forecasting',
+              'Payroll, HST/GST, and compliance',
+              'Systems & process improvement (QuickBooks setup, workflows, controls)'
+            ].map((item, index) => (
+              <div key={index} className="flex items-start space-x-3">
+                <CheckCircle className="h-5 w-5 text-primary-green mt-1 flex-shrink-0" />
+                <span className="text-gray-800">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -165,7 +200,7 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Industries We Serve */}
+      {/* Who we serve */}
       <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -176,32 +211,35 @@ const ServicesPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Industries We Serve
+              Who we serve
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our expertise spans across various industries, providing specialized 
-              solutions for each sector's unique requirements.
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Small & mid-sized businesses • Not-for-profits & churches • Professionals & families
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {industries.map((industry, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              'Small & mid-sized businesses',
+              'Not-for-profits & churches',
+              'Professionals & families'
+            ].map((group, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow"
+                className="bg-white rounded-lg p-6 text-center shadow-md"
               >
-                <span className="text-gray-800 font-medium">{industry}</span>
+                <span className="text-gray-900 font-semibold">{group}</span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Our Services */}
+      {/* Why Asante CPA */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -224,67 +262,64 @@ const ServicesPage = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Choose Our Services?
+                Why Asante CPA
               </h2>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Comprehensive Solutions
-                    </h3>
-                    <p className="text-gray-600">
-                      Full-service accounting firm offering everything from basic bookkeeping to complex tax planning.
-                    </p>
-                  </div>
-                </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="h-5 w-5 text-white" />
+              <div className="space-y-4">
+                {[
+                  'CPA Ontario Licensed • Professional Corporation',
+                  '20+ years’ experience',
+                  'Flexible engagement: remote or in-person',
+                  'Transparent fees and proactive communication'
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-primary-green mt-1 flex-shrink-0" />
+                    <span className="text-gray-800">{item}</span>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Industry Expertise
-                    </h3>
-                    <p className="text-gray-600">
-                      Deep understanding of various industries and their specific accounting requirements.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Technology-Driven
-                    </h3>
-                    <p className="text-gray-600">
-                      Modern tools and software to ensure accuracy, efficiency, and real-time reporting.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Proactive Approach
-                    </h3>
-                    <p className="text-gray-600">
-                      We don't just react to problems—we help you plan ahead and optimize your financial position.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* How we work (simple steps) */}
+      <section className="section-padding bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              How we work (simple steps)
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { step: '1', title: 'Discovery', text: 'Understand your goals and timelines' },
+              { step: '2', title: 'Plan', text: 'Clear scope, pricing, and deliverables' },
+              { step: '3', title: 'Execute', text: 'Secure document portal, on-time delivery' },
+              { step: '4', title: 'Review', text: 'Practical insights and next steps' }
+            ].map((s, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl p-6 shadow-md"
+              >
+                <div className="w-10 h-10 rounded-full bg-primary-green text-white flex items-center justify-center font-bold mb-4">
+                  {s.step}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{s.title}</h3>
+                <p className="text-gray-600">{s.text}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

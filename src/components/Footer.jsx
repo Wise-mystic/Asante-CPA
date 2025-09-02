@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, Facebook, Linkedin, Instagram, Twitter, X } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
-import FooterLogoImage from '@/assets/images/Mr. Ben Asante Logo .jpg';
-import RemoveBackgroundLogoImage from '@/assets/images/Mr._Ben_Asante_Logo_-removebg-preview.png';
+import FooterLogoImage from '@/assets/images/crop-logo2.png';
 
 const Footer = () => {
   const firmAddress = "9 Sparrow way, Tottenham, ON, LOG1W0";
@@ -39,12 +38,12 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex-shrink-0 flex items-center space-x-3">
               <img 
-                src={RemoveBackgroundLogoImage} 
+                src={FooterLogoImage} 
                 alt="Asante CPA Professional Corporation Logo" 
                 className="h-24 w-auto object-contain" 
                 onError={(e) => {
                   console.error('Footer logo failed to load, using fallback');
-                  e.target.src = RemoveBackgroundLogoImage;
+                  e.target.src = FooterLogoImage;
                 }}
               />
               {/* Social Media Links */}

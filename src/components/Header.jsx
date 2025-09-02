@@ -53,7 +53,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 text-xs sm:text-sm text-gray-600">
             <div className="flex items-center space-x-4">
-              <a href="tel:16476280976" className="flex items-center space-x-1 hover:text-primary-green" aria-label="Phone number">
+              <a href="https://wa.me/16476280976" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 hover:text-primary-green" aria-label="WhatsApp">
                 <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">+1 (647) 628-0976</span>
               </a>

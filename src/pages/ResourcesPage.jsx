@@ -22,8 +22,8 @@ const ResourcesPage = () => {
 
   const handleResourceClick = (resourceName) => {
     toast({
-      title: "🚧 Resource coming soon!",
-      description: `${resourceName} isn't available yet—but don't worry! You can request it in your next prompt! 🚀`,
+      title: "✨ Coming soon",
+      description: `${resourceName} will be available here soon. Please check back shortly.`,
     });
   };
 

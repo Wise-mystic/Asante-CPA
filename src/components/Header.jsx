@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronUp, Mail, Phone, Facebook, Linkedin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LogoImage from '@/assets/images/Mr._Ben_Asante_croped_Logo_-removebg-preview.png';
 
@@ -48,6 +48,37 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
+      {/* Top contact bar */}
+      <div className="bg-gray-50 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-10 text-xs sm:text-sm text-gray-600">
+            <div className="flex items-center space-x-4">
+              <a href="tel:16476280976" className="flex items-center space-x-1 hover:text-primary-green" aria-label="Phone number">
+                <Phone className="h-4 w-4" />
+                <span className="hidden sm:inline">+1 (647) 628-0976</span>
+              </a>
+              <a href="mailto:info@asantecpa.ca" className="flex items-center space-x-1 hover:text-primary-green" aria-label="Email address">
+                <Mail className="h-4 w-4" />
+                <span className="hidden sm:inline">info@asantecpa.ca</span>
+              </a>
+            </div>
+            <div className="flex items-center space-x-3">
+              <a href="https://www.facebook.com/AsanteCPA" target="_blank" rel="noopener noreferrer" className="hover:text-primary-green" aria-label="Facebook">
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a href="https://www.linkedin.com/company/asante-cpa" target="_blank" rel="noopener noreferrer" className="hover:text-primary-green" aria-label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a href="https://www.instagram.com/asantecpa" target="_blank" rel="noopener noreferrer" className="hover:text-primary-green" aria-label="Instagram">
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a href="https://x.com/asantecpa" target="_blank" rel="noopener noreferrer" className="hover:text-primary-green" aria-label="X">
+                <X className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex-shrink-0 flex items-center space-x-3">

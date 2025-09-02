@@ -104,13 +104,15 @@ const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
-              Professional 
-              <span className="text-primary-green"> Accounting Services</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
+              Professional <span className="text-primary-green">Accounting Services</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed text-center">
-              Comprehensive CPA services designed to meet the unique needs of 
-              businesses and individuals across various industries.
+            <p className="text-lg text-gray-600 mb-3 text-center">
+              Clear, practical CPA support — remote or in-person (Canada & U.S.)
+            </p>
+            <p className="text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed text-center">
+              We help individuals, businesses, and not-for-profits with bookkeeping, tax, reporting, payroll, and CFO advisory —
+              delivered with transparent fees, timely communication, and dependable results.
             </p>
           </motion.div>
         </div>
@@ -127,7 +129,7 @@ const ServicesPage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What we do
+              What We Do
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Practical, end-to-end accounting support tailored to your needs
@@ -211,7 +213,7 @@ const ServicesPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Who we serve
+              Who We Serve
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Small & mid-sized businesses • Not-for-profits & churches • Professionals & families
@@ -262,7 +264,7 @@ const ServicesPage = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Asante CPA
+                Why Asante CPA?
               </h2>
 
               <div className="space-y-4">
@@ -294,7 +296,7 @@ const ServicesPage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How we work (simple steps)
+              How We Work (simple steps)
             </h2>
           </motion.div>
 

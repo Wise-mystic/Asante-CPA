@@ -132,14 +132,6 @@ const HomePage = () => {
                     <span className="text-xs text-gray-600">Licensed</span>
                   </div>
                 </div>
-                {/* <div className="flex items-center space-x-2">
-                  <Award className="h-5 w-5 text-primary-blue" />
-                  <span className="text-sm">20+ Years Experience</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Users className="h-5 w-5 text-primary-green" />
-                  <span className="text-sm">500+ Satisfied Clients</span>
-                </div> */}
                 <div className="flex items-center space-x-2">
                   <div className="bg-primary-blue/10 rounded-full p-2 flex items-center justify-center">
                     <CheckCircle className="h-5 w-5 text-primary-blue" />

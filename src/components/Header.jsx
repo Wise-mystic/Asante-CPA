@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import LogoImage from '@/assets/images/Mr._Ben_Asante_Logo_-removebg-preview.png';
+import LogoImage from '@/assets/images/Mr._Ben_Asante_croped_Logo_-removebg-preview.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +54,7 @@ const Header = () => {
             <img
               src={LogoImage}
               alt="Asante CPA Professional Corporation Logo"
-              className="h-32 w-auto object-contain"
+              className="h-24 w-auto object-contain mt-2"
             />
           </Link>
 

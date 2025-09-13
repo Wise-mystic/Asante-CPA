@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ChevronUp, Mail, Phone, Facebook, Linkedin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import LogoImage from '@/assets/images/Mr._Ben_Asante_croped_Logo_-removebg-preview.png';
+import CpaLogo from '@/assets/images/cpa-l-logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,6 +87,11 @@ const Header = () => {
               src={LogoImage}
               alt="Asante CPA Professional Corporation Logo"
               className="h-24 w-auto object-contain mt-2"
+            />
+            <img
+              src={CpaLogo}
+              alt="CPA Chartered Professional Accountant logo"
+              className="h-8 sm:h-10 w-auto object-contain"
             />
           </Link>
 

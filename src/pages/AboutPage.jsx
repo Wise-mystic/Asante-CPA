@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Award, Users, Shield, TrendingUp, CheckCircle, Target } from 'lucide-react';
-import AboutPageImage from '@/assets/images/image.png';
+import { Users, Shield, TrendingUp, CheckCircle, Target } from 'lucide-react';
+import FinanceGrowthImage from '@/assets/images/ChatGPT Image Sep 13, 2025, 04_59_01 PM.png';
 
 const AboutPage = () => {
   const values = [
@@ -30,11 +30,9 @@ const AboutPage = () => {
 
   const credentials = [
     'Chartered Professional Accountant (CPA) - Ontario',
-    'Bachelor of Commerce, Accounting Major',
-    'Advanced Tax Planning Certification',
     'QuickBooks ProAdvisor Certified',
     'Member of CPA Ontario',
-    'Professional Corporation License'
+    
   ];
 
   return (
@@ -79,10 +77,13 @@ const AboutPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <img  
-                className="rounded-2xl shadow-2xl w-full h-100 object-cover"
-                alt="Professional headshot of Mr. Ben Asante"
-               src={AboutPageImage}/>
+              <div className="inline-block rounded-2xl shadow-2xl bg-white overflow-hidden">
+                <img
+                  src={FinanceGrowthImage}
+                  alt="Financial growth illustration"
+                  className="block w-[420px] md:w-[520px] h-auto"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -103,21 +104,13 @@ const AboutPage = () => {
             </h2>
             <div className="prose prose-lg mx-auto text-gray-600">
               <p className="mb-6">
-                Asante CPA Professional Corporation was founded with a simple mission: 
-                to provide exceptional accounting and advisory services that help our 
-                clients achieve their financial goals while maintaining the highest 
-                standards of professional integrity.
+                Asante CPA Professional Corporation was founded with a simple mission: to provide exceptional accounting and advisory services that help clients achieve their financial goals while upholding the highest standards of professional integrity.
               </p>
               <p className="mb-6">
-                With over 10 years of experience in public accounting, our team has 
-                worked with hundreds of businesses and individuals, from startups to 
-                established enterprises, helping them navigate complex financial 
-                challenges and opportunities.
+                With over a decade of experience in both public accounting and industry, we work with small to medium-sized businesses and individuals to navigate audits, tax planning, budgeting, and other complex financial matters—while also uncovering opportunities for growth.
               </p>
               <p>
-                As a CPA Ontario licensed Professional Corporation, we combine 
-                technical expertise with personalized service, ensuring that each 
-                client receives the attention and solutions they deserve.
+                As a CPA Ontario licensed Professional Corporation, we combine technical expertise with personalized service to ensure every client receives the dedicated attention and tailored solutions they deserve.
               </p>
             </div>
           </motion.div>
@@ -143,11 +136,13 @@ const AboutPage = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <img
-                className="rounded-2xl shadow-xl w-full h-96 object-cover"
-                alt="Portrait of Ben Asante-Yirenkyi, CPA, CA"
-                src={AboutPageImage}
-              />
+              <div className="inline-block rounded-2xl shadow-xl bg-white overflow-hidden">
+                <img
+                  src={FinanceGrowthImage}
+                  alt="Financial growth illustration"
+                  className="block w-[360px] md:w-[420px] h-auto"
+                />
+              </div>
             </motion.div>
 
             <motion.div
@@ -157,10 +152,10 @@ const AboutPage = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                Ben Asante-Yirenkyi, CPA, CA — Principal & Founder
+                Principal & Founder —  B. Asante, CPA, CA
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Ben is a Chartered Professional Accountant with 20+ years’ experience in accounting, tax, controllership, and advisory. He has led finance functions for SMEs and not-for-profits, guided clients through audits, budgeting and forecasting, and resolved complex CRA matters—always with a practical, client-first approach grounded in stewardship.
+                A Chartered Professional Accountant with over 20 years’ experience in accounting, tax, controllership, and advisory. Provides finance support for SMEs and not-for-profits, guides clients through audits, budgeting, and forecasting, and resolves complex CRA matters—always with a practical, client-first approach grounded in stewardship.
               </p>
               <p className="text-gray-800 italic border-l-4 border-primary-green pl-4">
                 “My goal is to provide clear advice and dependable results so clients can focus on their mission.”

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, Facebook, Linkedin, Instagram, Twitter, X } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 import FooterLogoImage from '@/assets/images/crop-logo2.png';
+import CpaLogo from '@/assets/images/cpa-l-logo.png';
 
 const Footer = () => {
   const firmAddress = "9 Sparrow way, Tottenham, ON, LOG1W0";
@@ -54,6 +55,13 @@ const Footer = () => {
                 <SocialIcon Icon={X} href={socialLinks.X} />
               </div>
             </Link>
+            <div className="mt-4">
+              <img
+                src={CpaLogo}
+                alt="CPA Chartered Professional Accountant logo"
+                className="h-12 w-auto object-contain"
+              />
+            </div>
             <div className="mt-4">
               <p className="text-gray-300 mb-4 max-w-md leading-relaxed">
                 Trusted accounting and advisory services for businesses and individuals. 

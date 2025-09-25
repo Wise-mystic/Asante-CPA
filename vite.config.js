@@ -196,6 +196,8 @@ export default defineConfig({
 		react(),
 		addTransformIndexHtml
 	],
+	// Base path for assets; set VITE_BASE when deploying to a subdirectory (e.g. '/site/')
+	base: process.env.VITE_BASE || '/',
 	server: {
 		cors: true,
 		headers: {

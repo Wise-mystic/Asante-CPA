@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Users, Shield, TrendingUp, CheckCircle, Target } from 'lucide-react';
 import FinanceGrowthImage from '@/assets/images/ChatGPT Image Sep 13, 2025, 04_59_01 PM.png';
@@ -37,12 +38,11 @@ const AboutPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>About Us - Professional CPA Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Learn about Asante CPA Professional Corporation. CPA Ontario licensed with 20+ years experience providing personalized accounting and advisory services to businesses and individuals in Tottenham." />
-        <meta property="og:title" content="About Us - Professional CPA Services | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="CPA Ontario licensed with 20+ years experience providing personalized accounting and advisory services to businesses and individuals in Tottenham." />
-      </Helmet>
+      <Seo
+        title="About Us - Professional CPA Services"
+        description="Learn about Asante CPA Professional Corporation. CPA Ontario licensed with 20+ years experience providing personalized accounting and advisory services to businesses and individuals in Tottenham."
+        path="/about"
+      />
 
       {/* Hero Section */}
       <section className="hero-pattern bg-gradient-to-br from-slate-50 to-blue-50 section-padding">

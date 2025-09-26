@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -50,12 +51,11 @@ const ContactPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us - Schedule Consultation | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Contact Asante CPA Professional Corporation in Tottenham. Schedule a consultation for tax preparation, bookkeeping, payroll, and business advisory services. Licensed CPA with personalized service." />
-        <meta property="og:title" content="Contact Us - Schedule Consultation | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="Contact licensed CPA in Tottenham for tax preparation, bookkeeping, payroll, and business advisory services. Schedule your consultation today." />
-      </Helmet>
+      <Seo
+        title="Contact Us - Schedule Consultation"
+        description="Contact Asante CPA Professional Corporation in Tottenham. Schedule a consultation for tax preparation, bookkeeping, payroll, and business advisory services. Licensed CPA with personalized service."
+        path="/contact"
+      />
 
       <section className="hero-pattern bg-gradient-to-br from-slate-50 to-blue-50 section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

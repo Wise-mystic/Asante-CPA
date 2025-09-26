@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight, Lightbulb } from 'lucide-react';
@@ -32,12 +33,11 @@ const AdvisoryPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Business Advisory & CFO Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Professional business advisory and CFO services in Toronto. Financial planning, cash flow management, business valuations, and strategic consulting by licensed CPA." />
-        <meta property="og:title" content="Business Advisory & CFO Services | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="Professional business advisory services including financial planning, cash flow management, and strategic consulting by licensed CPA in Toronto." />
-      </Helmet>
+      <Seo
+        title="Business Advisory & CFO Services"
+        description="Professional business advisory and CFO services in Toronto. Financial planning, cash flow management, business valuations, and strategic consulting by licensed CPA."
+        path="/services/advisory"
+      />
 
       <Section className="hero-pattern bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

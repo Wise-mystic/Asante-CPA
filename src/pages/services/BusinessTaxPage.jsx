@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Building, FileText, Shield, TrendingUp, CheckCircle, ArrowRight, Calculator } from 'lucide-react';
@@ -55,12 +56,11 @@ const BusinessTaxPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Business Tax Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Professional business tax services in Toronto. Corporate tax returns, HST/GST filing, tax compliance, and strategic tax planning for all business structures by licensed CPA." />
-        <meta property="og:title" content="Business Tax Services | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="Professional business tax services including corporate tax returns, HST/GST filing, and strategic tax planning by licensed CPA in Toronto." />
-      </Helmet>
+      <Seo
+        title="Business Tax Services"
+        description="Professional business tax services in Toronto. Corporate tax returns, HST/GST filing, tax compliance, and strategic tax planning for all business structures by licensed CPA."
+        path="/services/business-tax"
+      />
 
       {/* Hero Section */}
       <section className="hero-pattern bg-gradient-to-br from-slate-50 to-blue-50 section-padding">

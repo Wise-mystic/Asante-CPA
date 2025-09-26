@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -75,12 +76,11 @@ const HomePage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Trusted CPA Services — Remote or In-Person | Asante CPA</title>
-        <meta name="description" content="Comprehensive CPA services for businesses, individuals, and not-for-profits across Canada & the U.S. Bookkeeping, tax preparation, corporate accounting, CFO advisory—remote or in-person. CPA Ontario licensed with 20+ years experience." />
-        <meta property="og:title" content="Trusted CPA Services — Remote or In-Person | Asante CPA" />
-        <meta property="og:description" content="Comprehensive CPA services for businesses, individuals, and not-for-profits across Canada & the U.S. Bookkeeping, tax preparation, corporate accounting, CFO advisory—remote or in-person. CPA Ontario licensed with 20+ years experience." />
-      </Helmet>
+      <Seo
+        title="Trusted CPA Services — Remote or In-Person"
+        description="Comprehensive CPA services for businesses, individuals, and not-for-profits across Canada & the U.S. Bookkeeping, tax preparation, corporate accounting, CFO advisory—remote or in-person. CPA Ontario licensed with 20+ years experience."
+        path="/"
+      />
 
       {/* Hero Section */}
       <section className="hero-pattern bg-gradient-to-br from-slate-50 to-blue-50 section-padding">

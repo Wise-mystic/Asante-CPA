@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Calculator, FileText, Shield, TrendingUp, CheckCircle, ArrowRight, DollarSign } from 'lucide-react';
@@ -53,12 +54,11 @@ const IndividualTaxPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Individual Tax Preparation Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Professional individual tax preparation services in Toronto. T1 personal income tax returns, tax planning, CRA representation, and deduction optimization by licensed CPA." />
-        <meta property="og:title" content="Individual Tax Preparation Services | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="Professional individual tax preparation services including T1 returns, tax planning, and CRA representation by licensed CPA in Toronto." />
-      </Helmet>
+      <Seo
+        title="Individual Tax Preparation Services"
+        description="Professional individual tax preparation services in Toronto. T1 personal income tax returns, tax planning, CRA representation, and deduction optimization by licensed CPA."
+        path="/services/individual-tax"
+      />
 
       {/* Hero Section */}
       <section className="hero-pattern bg-gradient-to-br from-slate-50 to-blue-50 section-padding">

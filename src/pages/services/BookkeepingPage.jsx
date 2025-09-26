@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight } from 'lucide-react';
@@ -32,12 +33,11 @@ const BookkeepingPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Bookkeeping & Accounting Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Professional bookkeeping and accounting services in Toronto. Monthly bookkeeping, financial statements, QuickBooks setup, and accounts reconciliation by licensed CPA." />
-        <meta property="og:title" content="Bookkeeping & Accounting Services | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="Professional bookkeeping services including monthly bookkeeping, financial statements, and QuickBooks setup by licensed CPA in Toronto." />
-      </Helmet>
+      <Seo
+        title="Bookkeeping & Accounting Services"
+        description="Professional bookkeeping and accounting services in Toronto. Monthly bookkeeping, financial statements, QuickBooks setup, and accounts reconciliation by licensed CPA."
+        path="/services/bookkeeping"
+      />
 
       <Section className="hero-pattern bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

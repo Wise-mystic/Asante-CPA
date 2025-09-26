@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -89,12 +90,11 @@ const ServicesPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Professional Accounting Services | Asante CPA Professional Corporation</title>
-        <meta name="description" content="Comprehensive CPA services including tax preparation, bookkeeping, payroll, and business advisory. Serving individuals and businesses in Toronto with personalized professional solutions." />
-        <meta property="og:title" content="Professional Accounting Services | Asante CPA Professional Corporation" />
-        <meta property="og:description" content="Comprehensive CPA services including tax preparation, bookkeeping, payroll, and business advisory for individuals and businesses in Toronto." />
-      </Helmet>
+      <Seo
+        title="Professional Accounting Services"
+        description="Comprehensive CPA services including tax preparation, bookkeeping, payroll, and business advisory. Serving individuals and businesses in Toronto with personalized professional solutions."
+        path="/services"
+      />
 
       {/* Hero Section */}
       <section className="hero-pattern bg-gradient-to-br from-slate-50 to-blue-50 section-padding">

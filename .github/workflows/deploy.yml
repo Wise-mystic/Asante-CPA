@@ -46,6 +46,6 @@ jobs:
           server: ftp.asantecpa.ca
           username: asangvil
           password: Albert@ghana1
-          server-dir: /public_html/           # remote directory on cPanel
-          local-dir: dist/                    # folder to upload (for Vite)
-          # If you’re using CRA change to local-dir: build
+          server-dir: /public_html/
+          local-dir: dist/
+          dangerous-clean-slate: true

@@ -22,12 +22,14 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm install -g vite
 
       - name: Build site
-        run: npm run build
-        env:
-          NODE_ENV: production
+        run: |
+          export NODE_ENV=production
+          npm run build
 
       - name: Deploy dist to deploy branch
         uses: JamesIves/github-pages-deploy-action@v4

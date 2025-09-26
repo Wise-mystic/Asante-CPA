@@ -2,6 +2,7 @@
   "name": "asante-cpa-website",
   "description": "Asante CPA Professional Corporation Website",
   "type": "module",
+  "homepage": "https://asantecpa.ca",
   "version": "0.0.0",
   "private": true,
   "scripts": {

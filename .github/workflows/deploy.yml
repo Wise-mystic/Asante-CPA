@@ -3,7 +3,7 @@ name: Deploy React App to Namecheap cPanel
 on:
   push:
     branches:
-      - deploy    # change if your branch is called something else
+      - main
 
 jobs:
   build-and-deploy:
@@ -28,7 +28,18 @@ jobs:
       - name: Build app
         run: npm run build
 
-      # 5. Deploy the build folder to Namecheap via FTP
+      # 5. Verify build directory exists
+      - name: Verify build directory
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Error: dist directory not found"
+            ls -la
+            exit 1
+          fi
+          echo "Build directory contents:"
+          ls -la dist/
+
+      # 6. Deploy the build folder to Namecheap via FTP
       - name: Deploy to Namecheap cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

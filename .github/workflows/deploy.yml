@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history and branches
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -77,7 +79,7 @@ jobs:
             exit 1
           fi
 
-      - name: Create deploy branch
+      - name: Update deploy branch
         run: |
           # Verify dist directory exists before proceeding
           if [ ! -d "dist" ] || [ ! "$(ls -A dist)" ]; then
@@ -93,8 +95,19 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # Create or update deploy branch
-          git checkout -B deploy
+          # Check if deploy branch exists remotely
+          echo "Checking for existing deploy branch..."
+          if git ls-remote --heads origin deploy | grep -q deploy; then
+            echo "📁 Deploy branch exists, updating it..."
+            # Fetch the existing deploy branch
+            git fetch origin deploy:deploy
+            git checkout deploy
+            echo "Current deploy branch contents:"
+            ls -la
+          else
+            echo "🆕 Creating new deploy branch..."
+            git checkout -B deploy
+          fi
           
           # Remove everything except .git
           find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +

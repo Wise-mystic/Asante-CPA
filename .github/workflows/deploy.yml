@@ -22,22 +22,45 @@ jobs:
 
       # 3. Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: |
+          echo "Installing dependencies..."
+          npm ci
+          echo "Dependencies installed. Checking package.json scripts..."
+          npm run --silent
 
       # 4. Build the React/Vite app
       - name: Build app
-        run: npm run build
+        run: |
+          echo "Starting build process..."
+          npm run build
+          echo "Build completed. Checking for dist directory..."
+          ls -la
+          if [ -d "dist" ]; then
+            echo "dist directory found!"
+            ls -la dist/
+          else
+            echo "dist directory not found. Checking for other build directories..."
+            ls -la | grep -E "(build|out|dist)"
+          fi
 
       # 5. Verify build directory exists
       - name: Verify build directory
         run: |
-          if [ ! -d "dist" ]; then
-            echo "Error: dist directory not found"
-            ls -la
+          echo "Checking for build output directories..."
+          ls -la
+          
+          if [ -d "dist" ]; then
+            echo "Found dist directory!"
+            ls -la dist/
+          elif [ -d "build" ]; then
+            echo "Found build directory instead of dist. This might be a Create React App setup."
+            ls -la build/
+            echo "You may need to update local-dir to 'build/' in the deployment step."
+          else
+            echo "No build output directory found. Available directories:"
+            ls -la | grep "^d"
             exit 1
           fi
-          echo "Build directory contents:"
-          ls -la dist/
 
       # 6. Deploy the build folder to Namecheap via FTP
       - name: Deploy to Namecheap cPanel

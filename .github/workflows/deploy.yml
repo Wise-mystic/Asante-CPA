@@ -31,11 +31,22 @@ jobs:
           export NODE_ENV=production
           npm run build
 
-      - name: Deploy dist to deploy branch
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: deploy
-          folder: dist
-          clean: true
-          single-commit: true
+      - name: Clean deploy branch
+        run: |
+          git checkout deploy || git checkout -b deploy
+          git rm -rf .
+          git clean -fxd
+          
+      - name: Copy dist contents
+        run: |
+          cp -r dist/* .
+          cp dist/.htaccess . || true
+          
+      - name: Deploy to deploy branch
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Deploy to deploy branch" || echo "No changes to commit"
+          git push -f origin deploy
 

@@ -194,7 +194,7 @@ export default defineConfig({
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
 		react(),
-		addTransformIndexHtml
+		...(isDev ? [addTransformIndexHtml] : [])
 	],
 	// Base path for assets; set VITE_BASE when deploying to a subdirectory (e.g. '/site/')
 	base: process.env.VITE_BASE || '/',

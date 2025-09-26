@@ -72,10 +72,10 @@ jobs:
           # Configure git
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          # Make sure all changes are committed before switching branches
+          # Commit build output on main
           git add dist
           git commit -m "Build output before deploy" || echo "No changes to commit"
-          # Fetch and checkout deploy branch, or create if missing
+          # Switch to deploy branch
           if git ls-remote --heads origin deploy | grep -q deploy; then
             git fetch origin deploy:deploy
             git checkout deploy
@@ -84,10 +84,8 @@ jobs:
           fi
           # Remove everything except .git
           find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +
-          # Copy build output
-          shopt -s dotglob
-          cp -r dist/* .
-          shopt -u dotglob
+          # Copy build assets only
+          cp -r ../dist/* .
           git add -A
           git commit -m "Deploy: $(date)" || echo "No changes to commit"
           git push -f origin deploy

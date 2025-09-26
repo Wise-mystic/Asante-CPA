@@ -33,6 +33,12 @@ jobs:
 
       - name: Force clean deploy branch
         run: |
+          # Verify dist directory exists
+          if [ ! -d "dist" ]; then
+            echo "Error: dist directory not found"
+            exit 1
+          fi
+          
           # Delete deploy branch locally and remotely
           git push origin --delete deploy || true
           git branch -D deploy || true
@@ -44,7 +50,7 @@ jobs:
           rm -rf .* || true
           # Copy only dist contents
           cp -r dist/* .
-          cp dist/.htaccess . || true
+          cp -r dist/.* . 2>/dev/null || true
           # Configure git
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"

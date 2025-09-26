@@ -62,13 +62,14 @@ jobs:
             exit 1
           fi
 
-      # 6. Deploy the build folder to Namecheap via FTP
+      # 6. Deploy the build folder to Namecheap via SFTP
       - name: Deploy to Namecheap cPanel
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: appleboy/scp-action@master
         with:
-          server: ftp.asantecpa.ca
+          host: ftp.asantecpa.ca
           username: asangvil
           password: Albert@ghana1
-          server-dir: /public_html/
-          local-dir: dist/
-          dangerous-clean-slate: true
+          port: 22
+          source: "dist/*"
+          target: "/public_html/"
+          strip_components: 1

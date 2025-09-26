@@ -27,16 +27,31 @@ jobs:
           npm run build
           echo "Build completed. Checking for dist directory..."
           ls -la
-          if [ -d "dist" ]; then
-            echo "dist directory found!"
+          
+          # Check if dist directory exists and has content
+          if [ -d "dist" ] && [ "$(ls -A dist)" ]; then
+            echo "✅ dist directory found with content!"
             ls -la dist/
           else
-            echo "dist directory not found. Checking for other build directories..."
+            echo "❌ dist directory not found or empty. Checking for other build directories..."
             ls -la | grep -E "(build|out|dist)"
+            echo "Available files and directories:"
+            ls -la
+            exit 1
           fi
 
       - name: Create deploy branch
         run: |
+          # Verify dist directory exists before proceeding
+          if [ ! -d "dist" ] || [ ! "$(ls -A dist)" ]; then
+            echo "❌ Error: dist directory does not exist or is empty"
+            echo "Available directories:"
+            ls -la
+            exit 1
+          fi
+          
+          echo "✅ dist directory verified, proceeding with deployment..."
+          
           # Configure git
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -48,8 +63,12 @@ jobs:
           find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +
           
           # Copy dist contents to root
+          echo "Copying dist contents..."
           cp -r dist/* .
           cp -r dist/.* . 2>/dev/null || true
+          
+          echo "Files copied successfully:"
+          ls -la
           
           # Add and commit
           git add -A

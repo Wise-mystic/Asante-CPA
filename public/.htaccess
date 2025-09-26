@@ -1,18 +1,18 @@
-Options -MultiViews
+Options -MultiViews -Indexes
+
+# Force HTTPS on both root and www
 RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Block sensitive directories from web access
+RewriteRule ^node_modules/ - [F,L]
+RewriteRule ^vendor/ - [F,L]
 
 # Handle React Router routes by always serving index.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]
-
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
-</IfModule>
 
 <IfModule mod_headers.c>
   Header set X-Powered-By "Hostinger Horizons"

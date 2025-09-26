@@ -1,61 +1,40 @@
-name: Build and Deploy to deploy branch
+name: Deploy React App to Namecheap cPanel
 
 on:
   push:
     branches:
-      - main
-
-permissions:
-  contents: write
+      - deploy    # change if your branch is called something else
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # 1. Check out your code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      # 2. Use Node.js (set version you need)
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '18'
 
+      # 3. Install dependencies
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install -g vite
+        run: npm ci
 
-      - name: Build site
-        run: |
-          export NODE_ENV=production
-          npm run build
+      # 4. Build the React/Vite app
+      - name: Build app
+        run: npm run build
 
-      - name: Force clean deploy branch
-        run: |
-          # Verify dist directory exists
-          if [ ! -d "dist" ]; then
-            echo "Error: dist directory not found"
-            exit 1
-          fi
-          
-          # Delete deploy branch locally and remotely
-          git push origin --delete deploy || true
-          git branch -D deploy || true
-          # Create fresh deploy branch
-          git checkout --orphan deploy
-          git reset --hard
-          # Remove everything
-          rm -rf *
-          rm -rf .* || true
-          # Copy only dist contents
-          cp -r dist/* .
-          cp -r dist/.* . 2>/dev/null || true
-          # Configure git
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          # Force add and push
-          git add -A
-          git commit -m "Fresh deploy with only dist contents"
-          git push -f origin deploy
-
+      # 5. Deploy the build folder to Namecheap via FTP
+      - name: Deploy to Namecheap cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.asantecpa.ca
+          username: asangvil
+          password: Albert@ghana1
+          server-dir: /public_html            # remote directory on cPanel
+          local-dir: dist                     # folder to upload (for Vite)
+          # If you’re using CRA change to local-dir: build

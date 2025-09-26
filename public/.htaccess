@@ -1,4 +1,5 @@
 Options -MultiViews -Indexes
+DirectoryIndex index.html
 
 # Force HTTPS on both root and www
 RewriteEngine On

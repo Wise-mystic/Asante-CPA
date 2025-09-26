@@ -1,4 +1,4 @@
-name: Deploy React App to Namecheap cPanel
+name: Build and Deploy to cPanel
 
 on:
   push:
@@ -8,27 +8,19 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. Check out your code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Use Node.js (set version you need)
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
 
-      # 3. Install dependencies
       - name: Install dependencies
-        run: |
-          echo "Installing dependencies..."
-          npm ci
-          echo "Dependencies installed. Checking package.json scripts..."
-          npm run --silent
+        run: npm ci
 
-      # 4. Build the React/Vite app
       - name: Build app
         run: |
           echo "Starting build process..."
@@ -43,33 +35,31 @@ jobs:
             ls -la | grep -E "(build|out|dist)"
           fi
 
-      # 5. Verify build directory exists
-      - name: Verify build directory
+      - name: Create deploy branch
         run: |
-          echo "Checking for build output directories..."
-          ls -la
+          # Configure git
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           
-          if [ -d "dist" ]; then
-            echo "Found dist directory!"
-            ls -la dist/
-          elif [ -d "build" ]; then
-            echo "Found build directory instead of dist. This might be a Create React App setup."
-            ls -la build/
-            echo "You may need to update local-dir to 'build/' in the deployment step."
-          else
-            echo "No build output directory found. Available directories:"
-            ls -la | grep "^d"
-            exit 1
-          fi
+          # Create or update deploy branch
+          git checkout -B deploy
+          
+          # Remove everything except .git
+          find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +
+          
+          # Copy dist contents to root
+          cp -r dist/* .
+          cp -r dist/.* . 2>/dev/null || true
+          
+          # Add and commit
+          git add -A
+          git commit -m "Deploy: $(date)"
+          
+          # Push to deploy branch
+          git push -f origin deploy
 
-      # 6. Deploy the build folder to Namecheap via SFTP
-      - name: Deploy to Namecheap cPanel
-        uses: appleboy/scp-action@master
-        with:
-          host: ftp.asantecpa.ca
-          username: asangvil
-          password: Albert@ghana1
-          port: 22
-          source: "dist/*"
-          target: "/public_html/"
-          strip_components: 1
+      - name: Notify deployment
+        run: |
+          echo "✅ Deployment completed!"
+          echo "📁 Files deployed to deploy branch"
+          echo "🔗 Next: Set up cPanel Git Version Control to pull from deploy branch"

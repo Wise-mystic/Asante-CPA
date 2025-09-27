@@ -1,6 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import Seo from '@/components/Seo';
+import SEO from '@/components/SEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -76,10 +75,10 @@ const HomePage = () => {
 
   return (
     <>
-      <Seo
+      <SEO
         title="Trusted CPA Services — Remote or In-Person"
         description="Comprehensive CPA services for businesses, individuals, and not-for-profits across Canada & the U.S. Bookkeeping, tax preparation, corporate accounting, CFO advisory—remote or in-person. CPA Ontario licensed with 20+ years experience."
-        path="/"
+        url="/"
       />
 
       {/* Hero Section */}

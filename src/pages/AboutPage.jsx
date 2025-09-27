@@ -1,6 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import Seo from '@/components/Seo';
+import SEO from '@/components/SEO';
 import { motion } from 'framer-motion';
 import { Users, Shield, TrendingUp, CheckCircle, Target } from 'lucide-react';
 import FinanceGrowthImage from '@/assets/images/ChatGPT Image Sep 13, 2025, 04_59_01 PM.png';
@@ -38,10 +37,10 @@ const AboutPage = () => {
 
   return (
     <>
-      <Seo
+      <SEO
         title="About Us - Professional CPA Services"
         description="Learn about Asante CPA Professional Corporation. CPA Ontario licensed with 20+ years experience providing personalized accounting and advisory services to businesses and individuals in Tottenham."
-        path="/about"
+        url="/about"
       />
 
       {/* Hero Section */}

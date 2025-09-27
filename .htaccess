@@ -20,6 +20,12 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # Block access to node_modules and other development directories
 RewriteRule ^(node_modules|src|\.git)/ - [F,L]
 
+# Pre-rendering for search engine bots
+RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|yahoo|duckduckbot|baiduspider|yandexbot|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora|pinterest|slackbot|vkshare|redditbot|applebot|whatsapp|flipboard|tumblr|bitlybot|skypeuripreview|nuzzel|discordbot|googlepageinsights|pingdom|monitor|uptimerobot|statuscake) [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ https://service.prerender.io/acInu6YSXQpc6uH2VrdR/https://asantecpa.ca/$1 [P,L]
+
 # Handle React Router - serve index.html for all routes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

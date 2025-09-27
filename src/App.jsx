@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -21,32 +22,34 @@ import PaymentPortal404 from '@/components/PaymentPortal404';
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/individual-tax" element={<IndividualTaxPage />} />
-            <Route path="/services/business-tax" element={<BusinessTaxPage />} />
-            <Route path="/services/bookkeeping" element={<BookkeepingPage />} />
-            <Route path="/services/payroll" element={<PayrollPage />} />
-            <Route path="/services/advisory" element={<AdvisoryPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/resources/:slug" element={<BlogPostPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/book-consultation" element={<BookingPage />} />
-            <Route path="/request-quote" element={<QuotePage />} />
-            <Route path="/payment-portal" element={<PaymentPortal404 />} />
-          </Routes>
-        </main>
-        <Footer />
-        <Toaster />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/individual-tax" element={<IndividualTaxPage />} />
+              <Route path="/services/business-tax" element={<BusinessTaxPage />} />
+              <Route path="/services/bookkeeping" element={<BookkeepingPage />} />
+              <Route path="/services/payroll" element={<PayrollPage />} />
+              <Route path="/services/advisory" element={<AdvisoryPage />} />
+              <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="/resources/:slug" element={<BlogPostPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/book-consultation" element={<BookingPage />} />
+              <Route path="/request-quote" element={<QuotePage />} />
+              <Route path="/payment-portal" element={<PaymentPortal404 />} />
+            </Routes>
+          </main>
+          <Footer />
+          <Toaster />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 

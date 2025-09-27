@@ -1,6 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import Seo from '@/components/Seo';
+import SEO from '@/components/SEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -90,10 +89,10 @@ const ServicesPage = () => {
 
   return (
     <>
-      <Seo
+      <SEO
         title="Professional Accounting Services"
         description="Comprehensive CPA services including tax preparation, bookkeeping, payroll, and business advisory. Serving individuals and businesses in Toronto with personalized professional solutions."
-        path="/services"
+        url="/services"
       />
 
       {/* Hero Section */}

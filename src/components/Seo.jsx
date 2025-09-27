@@ -1,32 +1,42 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
-const SITE_NAME = 'Asante CPA Professional Corporation';
-const SITE_URL = 'https://asantecpa.ca';
-const DEFAULT_DESCRIPTION = 'CPA Ontario licensed accounting firm offering bookkeeping, tax, payroll, and advisory services. Serving clients across Canada & the U.S.';
-
-export default function Seo({
-  title,
-  description = DEFAULT_DESCRIPTION,
-  path = '/',
-  noindex = false,
-}) {
-  const url = `${SITE_URL}${path}`.replace(/\/+$/, '/');
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+const SEO = ({ 
+  title, 
+  description, 
+  keywords, 
+  image = "https://asantecpa.ca/src/assets/images/Mr._Ben_Asante_croped_Logo_-removebg-preview.png",
+  url,
+  type = "website"
+}) => {
+  const fullTitle = title ? `${title} - Asante CPA Professional Corporation` : 'Asante CPA Professional Corporation - Chartered Professional Accountant';
+  const fullDescription = description || 'Professional CPA services including tax preparation, bookkeeping, payroll, and business advisory for SMEs and NPOs in Ontario. Expert accounting solutions for your business.';
+  const fullKeywords = keywords || 'CPA, chartered professional accountant, tax preparation, bookkeeping, payroll, business advisory, accounting services, Ontario, SME, NPO';
+  const fullUrl = url ? `https://asantecpa.ca${url}` : 'https://asantecpa.ca/';
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:type" content="website" />
+      <meta name="description" content={fullDescription} />
+      <meta name="keywords" content={fullKeywords} />
+      <link rel="canonical" href={fullUrl} />
+      
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={fullUrl} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
-      {noindex && <meta name="robots" content="noindex,nofollow" />}
+      <meta property="og:description" content={fullDescription} />
+      <meta property="og:image" content={image} />
+      <meta property="og:site_name" content="Asante CPA Professional Corporation" />
+      
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={fullUrl} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={fullDescription} />
+      <meta name="twitter:image" content={image} />
     </Helmet>
   );
-}
+};
 
-
+export default SEO;

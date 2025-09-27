@@ -1,51 +1,25 @@
-# Disable directory browsing
-Options -Indexes
-
-# Set default index file
+Options -MultiViews -Indexes
 DirectoryIndex index.html
 
-# Enable rewrite engine
 RewriteEngine On
 
 # Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Block access to sensitive files and directories
-<FilesMatch "\.(env|log|md)$">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
+# Block sensitive directories
+RewriteRule ^(node_modules|vendor|src)/ - [F,L]
+RewriteRule ^\.env - [F,L]
 
-# Block access to node_modules and other development directories
-RewriteRule ^(node_modules|src|\.git)/ - [F,L]
-
-# Pre-rendering for search engine bots
-RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|yahoo|duckduckbot|baiduspider|yandexbot|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora|pinterest|slackbot|vkshare|redditbot|applebot|whatsapp|flipboard|tumblr|bitlybot|skypeuripreview|nuzzel|discordbot|googlepageinsights|pingdom|monitor|uptimerobot|statuscake) [NC]
+# React Router: send all non-files/non-folders to index.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ https://service.prerender.io/acInu6YSXQpc6uH2VrdR/https://asantecpa.ca/$1 [P,L]
+RewriteRule ^ index.html [L]
 
-# Handle React Router - serve index.html for all routes
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
-
-# Security headers
 <IfModule mod_headers.c>
-    Header always set X-Content-Type-Options nosniff
-    Header always set X-Frame-Options DENY
-    Header always set X-XSS-Protection "1; mode=block"
-</IfModule>
-
-# Cache static assets
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType text/css "access plus 1 year"
-    ExpiresByType application/javascript "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
+  Header set X-Powered-By "Hostinger Horizons"
+  # Cache assets
+  <FilesMatch "\.(js|css|png|jpg|jpeg|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
 </IfModule>
